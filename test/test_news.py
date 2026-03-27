@@ -2,6 +2,7 @@ import time
 
 import pytest
 
+import constance.constant
 from pages.login_page import Login_Page
 from pages.news_page import News_Page
 from utilities.excelutility import ExcelUtility
@@ -13,7 +14,8 @@ class TestNews:
         self.driver=browser_instance
         self.driver.maximize_window()
         #loginto grocery app using valid user name and password
-        excel_utility=ExcelUtility(r"C:\\TestData.xlsx")
+        #excel_utility=ExcelUtility(r"C:\\TestData.xlsx")
+        excel_utility = ExcelUtility(constance.constant.file_path) #accessing constant.py
         username=excel_utility.get_string_data(2,1,"LoginPage")
         password=excel_utility.get_string_data(2,2,"LoginPage")
         #locate username and password field and send username and password
@@ -30,9 +32,9 @@ class TestNews:
         # home_link=self.driver.find_element(By.XPATH,"//a[text()='Home']")
         # home_link.click()
         login_page=Login_Page(self.driver)
-        login_page.enter_username(username)
-        login_page.enter_password(password)
-        login_page.click_login()
+        login_page.enter_username(username).enter_password(password).click_login()
+        #login_page.enter_password(password)
+        #login_page.click_login()
         news_page=News_Page(self.driver)
         news_page.click_on_manage_news_tile()
         time.sleep(2)
@@ -48,7 +50,8 @@ class TestNews:
         self.driver=browser_instance
         self.driver.maximize_window()
         #loginto grocery app using valid user name and password
-        excel_utility=ExcelUtility(r"C:\\TestData.xlsx")
+        #excel_utility = ExcelUtility("C:\\TestData.xlsx")
+        excel_utility = ExcelUtility(constance.constant.file_path) #accessing constant.py
         username=excel_utility.get_string_data(2,1,"LoginPage")
         password=excel_utility.get_string_data(2,2,"LoginPage")
         #locate username and password field and send username and password
@@ -72,9 +75,9 @@ class TestNews:
         # save.click()
         # time.sleep(2)
         login_page = Login_Page(self.driver)
-        login_page.enter_username(username)
-        login_page.enter_password(password)
-        login_page.click_login()
+        login_page.enter_username(username).enter_password(password).click_login()
+        #login_page.enter_password(password)
+        #login_page.click_login()
         time.sleep(2)
         news_page = News_Page(self.driver)
         news_page.click_on_manage_news_tile()
@@ -96,7 +99,8 @@ class TestNews:
         self.driver=browser_instance
         self.driver.maximize_window()
         # loginto grocery app using valid user name and password
-        excel_utility = ExcelUtility(r"C:\\TestData.xlsx")
+        #excel_utility = ExcelUtility(r"C:\\TestData.xlsx")
+        excel_utility = ExcelUtility(constance.constant.file_path) #accessing constant.py
         username = excel_utility.get_string_data(2, 1, "LoginPage")
         password = excel_utility.get_string_data(2, 2, "LoginPage")
         # # locate username and password field and send username and password
@@ -118,19 +122,19 @@ class TestNews:
         # search_button=self.driver.find_element(By.CSS_SELECTOR,".btn.btn-danger.btn-fix")
         # search_button.click()
         login_page = Login_Page(self.driver)
-        login_page.enter_username(username)
-        login_page.enter_password(password)
-        login_page.click_login()
+        login_page.enter_username(username).enter_password(password).click_login()
+        #login_page.enter_password(password)
+        #login_page.click_login()
         time.sleep(2)
         news_page = News_Page(self.driver)
-        news_page.click_on_manage_news_tile()
-        time.sleep(2)
-        news_page.search_news_option()
-        time.sleep(2)
-        news_page.enter_news_for_search(news_info)
-        time.sleep(2)
-        news_page.search_news()
-        time.sleep(2)
+        news_page.click_on_manage_news_tile().search_news_option().enter_news_for_search(news_info).search_news()
+        #time.sleep(2)
+        #news_page.search_news_option()
+        #time.sleep(2)
+        #news_page.enter_news_for_search(news_info)
+        #time.sleep(2)
+        #news_page.search_news()
+        #time.sleep(2)
 
         #assertion
         #actual_result=self.driver.find_element(By.XPATH,"//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]").text

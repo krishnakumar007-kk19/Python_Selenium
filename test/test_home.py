@@ -2,6 +2,7 @@ import time
 
 from selenium.webdriver.common.by import By
 
+import constance
 from pages.home_page import Home_page
 from pages.login_page import Login_Page
 from utilities.excelutility import ExcelUtility
@@ -10,9 +11,12 @@ from utilities.excelutility import ExcelUtility
 class TestHome():
     def test_verify_logout(self,browser_instance):
         self.driver = browser_instance
+    #def test_verify_logout(self, cross_browser):
+        #self.driver = cross_browser
 
         self.driver.maximize_window()
         excel_utility = ExcelUtility("C:\\TestData.xlsx")
+        #excel_utility = ExcelUtility(constance.file_path) #accessing constant.py
         # (login with valid username-valid password)
         username_value = excel_utility.get_string_data(2, 1, "LoginPage")
         password_value = excel_utility.get_string_data(2, 2, "LoginPage")
@@ -33,9 +37,9 @@ class TestHome():
         # logout.click()
         # time.sleep(2)
         login_page = Login_Page(self.driver)
-        login_page.enter_username(username_value)
-        login_page.enter_password(password_value)
-        login_page.click_login()
+        login_page.enter_username(username_value).enter_password(password_value).click_login()
+        #login_page.enter_password(password_value)
+        #login_page.click_login()
         home_page=Home_page(self.driver)
         home_page.click_admin()
         home_page.click_logout()
