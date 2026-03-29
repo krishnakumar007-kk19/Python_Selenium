@@ -9,7 +9,6 @@ class Admin_page:
         self.driver=browser
         self.page_utility = Page_Utility
 
-
         self.admin_tile_locator=(By.XPATH,"//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer'] ")
         self.new_option_locator=(By.XPATH,"//a[@class='btn btn-rounded btn-danger']")
         self.user_name_in_new_option_locator=(By.CSS_SELECTOR, "input[name='username']")

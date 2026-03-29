@@ -1,7 +1,5 @@
 import time
-
 import pytest
-
 import constance.constant
 from pages.login_page import Login_Page
 from pages.news_page import News_Page
@@ -36,10 +34,10 @@ class TestNews:
         #login_page.enter_password(password)
         #login_page.click_login()
         news_page=News_Page(self.driver)
-        news_page.click_on_manage_news_tile()
-        time.sleep(2)
-        news_page.click_on_home_link()
-        time.sleep(3)
+        news_page.click_on_manage_news_tile().click_on_home_link()
+        #time.sleep(2)
+        #news_page.click_on_home_link()
+        #time.sleep(3)
 
         #assertion
         #actual_url=self.driver.current_url
@@ -80,14 +78,14 @@ class TestNews:
         #login_page.click_login()
         time.sleep(2)
         news_page = News_Page(self.driver)
-        news_page.click_on_manage_news_tile()
-        time.sleep(2)
-        news_page.click_on_news_option()
-        time.sleep(2)
-        news_page.enter_news()
-        time.sleep(2)
-        news_page.save_news()
-        time.sleep(2)
+        news_page.click_on_manage_news_tile().click_on_news_option().enter_news().save_news()
+        #time.sleep(2)
+        #news_page.click_on_news_option()
+        #time.sleep(2)
+        #news_page.enter_news()
+        #time.sleep(2)
+        #news_page.save_news()
+        #time.sleep(2)
 
         #assertion
         #actual_result=self.driver.find_element(By.XPATH,"//div[@class='alert alert-success alert-dismissible']")
@@ -141,12 +139,4 @@ class TestNews:
         #expected_result=["Market Hits Record High","Heavy Rain Disrupt City","Fuel Price Rises Again"]
         #assert actual_result in expected_result
         #time.sleep(2)
-
-
-
-
-
-
-
-
 

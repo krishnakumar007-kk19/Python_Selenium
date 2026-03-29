@@ -1,8 +1,6 @@
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC, expected_conditions
-
 
 class Wait_utility:
     EXPLICIT_WAIT = 5  # Duration in seconds for explicit waits

@@ -1,12 +1,10 @@
 import openpyxl
 
-
 class ExcelUtility:
     def __init__(self, file_path):
         # Initialize with the file path to the Excel file
         self.file_path = file_path
         self.workbook = openpyxl.load_workbook(file_path)
-
 
     def get_string_data(self, row, col, sheet_name):
         """Get a string value from a specific cell (row, column)"""

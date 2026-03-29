@@ -1,13 +1,10 @@
-import pytest
-from selenium.webdriver.common.by import By
-
 import time
-
+import pytest
 import constance.constant
 from pages.home_page import Home_page
 from pages.login_page import Login_Page
 from utilities.excelutility import ExcelUtility
-
+from selenium.webdriver.common.by import By
 
 class TestLogin:
     @pytest.mark.order(1)

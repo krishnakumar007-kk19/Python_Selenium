@@ -4,5 +4,3 @@ class Page_Utility:
     def staff_select(self,element):
         select = Select(element)
         select.select_by_value("staff")
-
-

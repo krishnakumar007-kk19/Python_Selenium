@@ -1,16 +1,11 @@
 import os.path
-
+import pytest
 from datetime import datetime
-
+from selenium import webdriver
+from utilities import ScreenshotUtility
 #import ChromeDriverManager
 #from webdriver_manager.chrome import ChromeDriverManager
-import pytest
-from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
-from utilities import ScreenshotUtility
-
-
 #import datetime
 #import os
 

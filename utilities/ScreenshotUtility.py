@@ -1,4 +1,3 @@
-
 import os
 
 def capture_screenshot(item, file_path):
@@ -18,4 +17,3 @@ def capture_screenshot(item, file_path):
     else:
         print("[Screenshot] Driver not found; skipping screenshot.")
         return None
-
